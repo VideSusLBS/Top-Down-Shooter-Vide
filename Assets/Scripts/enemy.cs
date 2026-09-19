@@ -5,12 +5,13 @@ public class enemy : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 3f;
     Rigidbody2D enemyRb;
-    [SerializeField] Transform playerLoc;
+    Transform playerLoc;
     Vector2 direction;
 
     void Start()
     {
         enemyRb = GetComponent<Rigidbody2D>();
+        playerLoc = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()

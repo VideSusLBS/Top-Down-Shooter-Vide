@@ -11,12 +11,14 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float bulletSpeed = 7f;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject gun;
+    Vector2 screenBoundary;
 
     float targetAngle;
 
     void Start()    
     {
         playerRB = GetComponent<Rigidbody2D>();
+        screenBoundary = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
 
     void OnMove(InputValue value)
@@ -37,7 +39,9 @@ public class PlayerMove : MonoBehaviour
         {
             targetAngle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
         }
-        
+
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -screenBoundary.x, screenBoundary.x),
+                                         Mathf.Clamp(transform.position.y, -screenBoundary.y, screenBoundary.y));
     }
 
     void FixedUpdate()
