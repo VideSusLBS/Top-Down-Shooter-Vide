@@ -366,6 +366,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3581837950554356397, guid: b1e73bb6d1fa55048ba4644067e523b4, type: 3}
+      propertyPath: m_WaitForFirstFrame
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6404196925850453455, guid: b1e73bb6d1fa55048ba4644067e523b4, type: 3}
       propertyPath: playerLoc
       value: 

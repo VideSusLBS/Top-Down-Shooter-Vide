@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float bulletSpeed = 7f;
     [SerializeField] GameObject bullet;
+    [SerializeField] GameObject gun;
 
     void Start()    
     {
