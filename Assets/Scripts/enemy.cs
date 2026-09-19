@@ -5,8 +5,8 @@ public class enemy : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 3f;
     Rigidbody2D enemyRb;
-
     [SerializeField] Transform playerLoc;
+    Vector2 direction;
 
     void Start()
     {
@@ -15,7 +15,14 @@ public class enemy : MonoBehaviour
 
     void Update()
     {
-        Vector2 direction = (playerLoc.position - transform.position).normalized;
+        if (playerLoc != null)
+        {
+            direction = (playerLoc.position - transform.position).normalized;
+        }
+    }
+
+    void FixedUpdate()
+    {
         enemyRb.MovePosition(enemyRb.position + direction * moveSpeed * Time.fixedDeltaTime);
     }
 }

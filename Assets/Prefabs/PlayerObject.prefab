@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1489636971631246733}
   - component: {fileID: 8251922143346511053}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: gunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: -3316183269386936352}
   - component: {fileID: 8834275790557324289}
   - component: {fileID: 1979732792033361332}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: PlayerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,8 +174,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 656415147
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 3
+  rotationSpeed: 700
   bulletSpeed: 7
   bullet: {fileID: 18714335582706266, guid: 08c8977a1beb9e949b58445710e18f30, type: 3}
   gun: {fileID: 5056360593412228795}

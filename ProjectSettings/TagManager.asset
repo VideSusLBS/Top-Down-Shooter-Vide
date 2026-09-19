@@ -3,15 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - Player
+  - Bullet
   - 
   - 
   - 
@@ -40,6 +41,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2184856769
+    locked: 0
+  - name: Foreground
+    uniqueID: 3307623199
+    locked: 0
+  - name: Front
+    uniqueID: 656415147
     locked: 0
   m_RenderingLayers:
   - Default
