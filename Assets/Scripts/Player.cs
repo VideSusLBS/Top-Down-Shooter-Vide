@@ -1,8 +1,7 @@
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : MonoBehaviour
+public class Player : MonoBehaviour
 {
     Rigidbody2D playerRB;
     Vector2 moveInput;
@@ -11,6 +10,10 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float bulletSpeed = 7f;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject gun;
+    [SerializeField] int health = 3;
+    [SerializeField] float invincibilityTimer = 2f;
+    bool Invincible = false;
+    //public bool playerAlive = true;
     Vector2 screenBoundary;
 
     float targetAngle;
@@ -50,11 +53,27 @@ public class PlayerMove : MonoBehaviour
         playerRB.MoveRotation(rotation);
     }
 
+    void ResetInvincibility()
+    {
+        Invincible = false;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && !Invincible)
         {
-            Destroy(gameObject);
+            health--;
+            Debug.Log($"Health: {health}");
+            if (health == 0)
+            {
+                //playerAlive = false;
+                Destroy(gameObject);
+            }
+            else
+            {
+                Invincible = true;
+                Invoke("ResetInvincibility", invincibilityTimer);
+            }
         }
     }
 }
