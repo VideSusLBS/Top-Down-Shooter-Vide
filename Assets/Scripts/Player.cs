@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     Rigidbody2D playerRB;
+
+    GameObject[] hearts = new GameObject[3];
+
     Vector2 moveInput;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float rotationSpeed = 700f;
@@ -22,6 +25,9 @@ public class Player : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody2D>();
         screenBoundary = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        hearts[0] = GameObject.Find("heart_1");
+        hearts[1] = GameObject.Find("heart_2");
+        hearts[2] = GameObject.Find("heart_3");
     }
 
     void OnMove(InputValue value)
@@ -68,11 +74,13 @@ public class Player : MonoBehaviour
             {
                 //playerAlive = false;
                 Destroy(gameObject);
+                GameObject.Destroy(hearts[0]);
             }
             else
             {
                 Invincible = true;
                 Invoke("ResetInvincibility", invincibilityTimer);
+                GameObject.Destroy(hearts[health]);
             }
         }
     }

@@ -24,6 +24,9 @@ public class enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        enemyRb.MovePosition(enemyRb.position + direction * moveSpeed * Time.fixedDeltaTime);
+        if (playerLoc != null)
+        {
+            enemyRb.MovePosition(enemyRb.position + direction * moveSpeed * Time.fixedDeltaTime);
+        }
     }
 }
