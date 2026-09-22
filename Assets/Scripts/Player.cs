@@ -75,6 +75,7 @@ public class Player : MonoBehaviour
                 //playerAlive = false;
                 Destroy(gameObject);
                 GameObject.Destroy(hearts[0]);
+                Invoke("bye", 2);
             }
             else
             {
@@ -83,5 +84,10 @@ public class Player : MonoBehaviour
                 GameObject.Destroy(hearts[health]);
             }
         }
+    }
+
+    void bye()
+    {
+        Application.Quit();
     }
 }
