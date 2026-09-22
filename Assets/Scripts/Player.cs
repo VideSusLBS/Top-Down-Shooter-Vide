@@ -89,5 +89,6 @@ public class Player : MonoBehaviour
     void bye()
     {
         Application.Quit();
+        Debug.Log("Bye!");
     }
 }
