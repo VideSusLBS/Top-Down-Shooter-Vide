@@ -1,12 +1,9 @@
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     Rigidbody2D playerRB;
-
-    GameObject[] hearts = new GameObject[3];
 
     Vector2 moveInput;
     [SerializeField] float moveSpeed = 3f;
@@ -27,9 +24,6 @@ public class Player : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody2D>();
         screenBoundary = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        hearts[0] = GameObject.Find("heart_1");
-        hearts[1] = GameObject.Find("heart_2");
-        hearts[2] = GameObject.Find("heart_3");
     }
 
     void OnMove(InputValue value)

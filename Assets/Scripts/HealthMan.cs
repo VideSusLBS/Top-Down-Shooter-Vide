@@ -11,6 +11,9 @@ public class HealthMan : MonoBehaviour
     Vector3 createDifference = new Vector3(-1.635f, 0f, 0f);
     GameObject[] currentHearts;
 
+    [SerializeField]AudioSource ded;
+    [SerializeField] GameObject gameOver;
+
     void Start()
     {
         currentHearts = new GameObject[startingHealth];
@@ -30,6 +33,8 @@ public class HealthMan : MonoBehaviour
         if (health <= 0)
         {
             Destroy(GameObject.FindGameObjectWithTag("Player"));
+            ded.Play();
+            gameOver.SetActive(true);
         }
     }
 }
