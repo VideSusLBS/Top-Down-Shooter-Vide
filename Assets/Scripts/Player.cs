@@ -1,3 +1,4 @@
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     //public bool playerAlive = true;
     Vector2 screenBoundary;
 
+    public HealthMan healthMan;
     float targetAngle;
 
     void Start()    
@@ -68,21 +70,10 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && !Invincible)
         {
-            health--;
-            Debug.Log($"Health: {health}");
-            if (health == 0)
-            {
-                //playerAlive = false;
-                Destroy(gameObject);
-                GameObject.Destroy(hearts[0]);
-                Invoke("bye", 2);
-            }
-            else
-            {
-                Invincible = true;
-                Invoke("ResetInvincibility", invincibilityTimer);
-                GameObject.Destroy(hearts[health]);
-            }
+            healthMan.takeDamage();
+
+            Invincible = true;
+            Invoke("ResetInvincibility", invincibilityTimer);
         }
     }
 

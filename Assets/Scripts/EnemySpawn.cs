@@ -15,11 +15,6 @@ public class EnemySpawn : MonoBehaviour
         SpawnEnemy();
     }
 
-    void Update()
-    {
-        
-    }
-
     void SpawnEnemy()
     {
         float spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
